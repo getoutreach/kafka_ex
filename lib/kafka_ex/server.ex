@@ -359,7 +359,7 @@ defmodule KafkaEx.Server do
 
       def kafka_server_metadata(topic, state) do
         {correlation_id, metadata} = retrieve_metadata(state.brokers, state.correlation_id, config_sync_timeout(), topic)
-        updated_state = %{state | metadata: metadata, correlation_id: correlation_id}
+        updated_state = %{state | correlation_id: correlation_id}
         {:reply, metadata, updated_state}
       end
 
